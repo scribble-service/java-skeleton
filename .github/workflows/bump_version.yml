@@ -1,0 +1,24 @@
+name: Bump project version
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  bump:
+    runs-on: ubuntu-20.04
+    steps:
+
+      - uses: actions/checkout@v2
+        name: Setup
+
+      - name: Bump version
+        run:
+          python3 .tools/bump_version.py
+
+      - name: Get POM version
+        run: echo "POM_VERSION=$(python3 .tools/get_version.py)" >> $GITHUB_ENV
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Bump version to ${{ env.POM_VERSION }}
