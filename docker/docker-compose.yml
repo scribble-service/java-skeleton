@@ -1,0 +1,11 @@
+version: "2"
+services:
+  app:
+    extends:
+      file: docker-compose.build.yml
+      service: mvn
+    container_name: scribble__security--jwt-generator
+    ports:
+      - "8080:8080"
+    command: spring-boot:run
+    env_file: .env
