@@ -1,7 +1,7 @@
 version: "2"
 services:
   jdk:
-    image: maven:3.8.3-openjdk-17
+    image: maven:3.8.5-openjdk-17
     volumes:
       - ${PWD}:${PWD}
     working_dir: ${PWD}
