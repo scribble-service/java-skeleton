@@ -19,6 +19,6 @@ jobs:
       - name: Get POM version
         run: echo "POM_VERSION=$(python3 .tools/get_version.py)" >> $GITHUB_ENV
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Bump version to ${{ env.POM_VERSION }}
